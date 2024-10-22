@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+      <div id="spa-root"></div> 
+    <iframe  src="http://localhost:8080/content/experience-fragments/experience_fragments/experience-fragment-test/master.html"></iframe>
+    <script type="text/javascript">
+        const getXF = async () => {
+
+            let headersList = {
+                "Accept": "text/html;charset=utf-8",
+                "Access-Control-Allow-Allow-Origin": "http://127.0.0.1:5500/Test.html",
+                // "Content-Type": "text/html",
+                "x-frame-options": "SAMEORIGIN"
+            }
+            
+            let response = await fetch("http://localhost:8080/content/experience-fragments/experience_fragments/experience-fragment-test/master.html" 
+                ,{
+                    method: "get", 
+                    headers: headersList
+                }
+            );
+    
+            debugger;
+            let data = await response;
+        }
+        const result = getXF();
+    </script>
+</body>
+</html>
